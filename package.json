@@ -1,0 +1,22 @@
+{
+  "name": "ezebackend",
+  "version": "1.0.0",
+  "description": "ezeccnackend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ojokure/ezebackend.git"
+  },
+  "author": "MIT",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ojokure/ezebackend/issues"
+  },
+  "homepage": "https://github.com/ojokure/ezebackend#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
