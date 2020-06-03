@@ -2,6 +2,20 @@ const express = require("express");
 const router = express.Router();
 const BuyRequest = require("../Models/buy_request_model");
 
+async function getbuyhelper(req, res, next) {
+  try {
+    buyrequest = await BuyRequest.findById(req.params.id);
+    if (buyrequest == null) {
+      return res.status(404).json({ message: "Could not find request" });
+    }
+  } catch (err) {
+    return res.status(500).json({ message: err.message });
+  }
+
+  res.buyrequest = buyrequest;
+  next();
+}
+
 router.post("/", async (req, res) => {
   const buyrequest = new BuyRequest({
     name: req.body.name,
@@ -25,6 +39,10 @@ router.get("/", async (req, res) => {
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
+});
+
+router.get("/:id", getbuyhelper, (req, res) => {
+  res.json(res.buyrequest);
 });
 
 module.exports = router;
