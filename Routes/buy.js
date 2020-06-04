@@ -41,8 +41,4 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/:id", getbuyhelper, (req, res) => {
-  res.json(res.buyrequest);
-});
-
 module.exports = router;
