@@ -11,6 +11,9 @@ const buyRouter = require("./Routes/buy");
 // Sell Request Endpoint
 const sellRouter = require("./Routes/sell");
 
+// Import Endpoint
+const importRouter = require("./Routes/import");
+
 const server = express();
 
 server.use(helmet());
@@ -28,6 +31,7 @@ db.once("open", () => console.log("connected to database"));
 
 server.use("/buy", buyRouter);
 server.use("/sell", sellRouter);
+server.use("/import", importRouter);
 
 server.use("/", (req, res) => {
   res.send("<h1> Working... </h1>");
