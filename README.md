@@ -23,14 +23,6 @@ Oladimeji Ojo
 
 `npm install`
 
-### Run Database Migrations
-
-`npm run migrate`
-
-### Run Database Seeds
-
-`npm run seed`
-
 ### Run Server
 
 `npm run server`

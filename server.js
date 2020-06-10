@@ -27,7 +27,10 @@ mongoose.connect(process.env.DATABASE_URL, {
 
 const db = mongoose.connection;
 db.on("error", (error) => console.error(error));
-db.once("open", () => console.log("connected to database"));
+db.once("open", async () => {
+  console.log("connected to database");
+  // if ((await User.countDocuments().exec()) > 0) return;
+});
 
 server.use("/buy", buyRouter);
 server.use("/sell", sellRouter);

@@ -4,7 +4,9 @@
   "description": "ezeccnackend",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "devStart": "nodemon server.js",
+    "test": "cross-env DB_ENV=testing jest --watchAll",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",

@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const BuyRequest = require("../Models/buy_request_model");
 
+// A helper to find a single data should we need to
 async function getbuyhelper(req, res, next) {
   try {
     buyrequest = await BuyRequest.findById(req.params.id);
@@ -16,6 +17,7 @@ async function getbuyhelper(req, res, next) {
   next();
 }
 
+// POST ENDPOINT
 router.post("/", async (req, res) => {
   const buyrequest = new BuyRequest({
     name: req.body.name,
@@ -32,6 +34,7 @@ router.post("/", async (req, res) => {
   }
 });
 
+// GET ENDPOINT
 router.get("/", async (req, res) => {
   try {
     const buyrequest = await BuyRequest.find();

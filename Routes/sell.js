@@ -2,6 +2,10 @@ const express = require("express");
 const router = express.Router();
 const SellRequest = require("../Models/sell_request_model");
 
+// paginate helper
+const paginateResults = require("../Utils/paginate");
+
+// POST ENDPOINT
 router.post("/", async (req, res) => {
   const sellrequest = new SellRequest({
     name: req.body.name,
@@ -18,10 +22,11 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.get("/", async (req, res) => {
+// GET ENDPOINT
+router.get("/", paginateResults(SellRequest), async (req, res) => {
   try {
-    const sellrequest = await SellRequest.find();
-    res.json(sellrequest);
+    // const sellrequest = await SellRequest.find();
+    res.json(res.paginatedResults);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
