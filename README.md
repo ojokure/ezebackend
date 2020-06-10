@@ -25,92 +25,84 @@ Oladimeji Ojo
 
 ### Run Server
 
-`npm run server`
-
-## Auth Routes
+`npm run devStart`
 
 ## Get Devices
 
-`GET /profile/coaches`
+`GET /sell?page=1&limit=16`
 
-**GET** This will get all coaches
+**GET** This will get all devices with a required limit query
 
 **Examples**
 
-GET Coaches Success Response
+GET Paginated Sell Requests Success Response
 
 ```javascript
 {
-    "coaches": [
-        {
-            "id": 1,
-            "first_name": "Jayne",
-            "last_name": "Carmichael Norrie",
-            "email": "jayne@musicisourforte.co.uk",
-            "password": "$2a$10$3LmQzlDtk/1NYys6kn5Ea.FH680/SzfqPWNTC3X9qZQ9.a.I1Z3vi",
-            "location": null,
-            "role_id": 2,
-            "user_id": 1,
-            "avatar_url": "google.com",
-            "experience_level": 1,
-            "skill_level": 1,
-            "description": "Jayne worked as a singing teacher for 9 years and is now studying with Lambda School",
-            "rating": null,
-            "hourly_rate": null,
-            "contact_url": null
-        }
+    "results": [
+      {
+            "_id": "5ee11bf235fbe752808fb68d",
+            "name": "iPhone XS Max",
+            "condition": "New",
+            "storage": "64GB",
+            "price": "1160",
+            "__v": 0
+        },
       ]
     }
 ```
 
-GET Coaches Error Response
-
-```javascript
-{
-    "message": "Auth Failed"
-}
-```
-
-## Get Appointments
-
-`GET /appointment/:id`
-
-Parameters
-
-| Name |  Type  | Description         | Required |
-| :--- | :----: | :------------------ | :------: |
-| role | String | role_id of the user |   Yes    |
-
-**GET** This will get all user appointments at the provided `id` (id is the coach.id or student id) and we need to send a body with an object = {"role": role_id} (role_id from the user)
+`GET /buy`
 
 **Examples**
 
-GET Appointments Success Response
+GET Buy Requests Success Response
 
 ```javascript
-{
-    "appointments": [
-        {
-            "first_name": "Bob",
-            "last_name": "Smith",
-            "email": "bob@google.com",
-            "experience_level": 1,
-            "confidence_level": 1,
-            "avatar_url": "www.stripe.com",
-            "id": 1,
-            "created_at": "2019-12-20T07:50:04.203Z",
-            "appointment_datetime": null,
-            "canceled": false,
-            "appointment_topic": "Frontend"
-        }
-      ]
-    }
+[
+  {
+    _id: "5ed79d83fe03852978ebc2b9",
+    name: "iPhoneX",
+    storage: "64GB",
+    condition: "A1",
+    price: "$1,000",
+    __v: 0,
+  },
+];
 ```
 
-GET Appointments Error Response
+## Post Devices
+
+`POST /sell`
+
+**Examples**
+
+POST Sell Requests expected format
 
 ```javascript
-{
-    "message": "Auth Failed"
-}
+[
+  {
+    name: "",
+    storage: "",
+    condition: "",
+    price: "",
+  },
+];
+```
+
+`POST /buy`
+
+**Examples**
+
+POST Buy Requests expected format
+
+```javascript
+[
+  {
+    name: "",
+    storage: "",
+    condition: "",
+    price: "",
+  },
+];
 ```
