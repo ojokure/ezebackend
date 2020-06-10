@@ -1,6 +1,4 @@
 const express = require("express");
-const app = express();
-const mongoose = require("mongoose");
 
 function paginatedResults(model) {
   return async (req, res, next) => {
