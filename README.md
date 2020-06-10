@@ -31,7 +31,7 @@ Oladimeji Ojo
 
 `GET /sell?page=1&limit=16`
 
-**GET** This will get all devices with a required limit query
+**GET** This will get all devices with the required limit query
 
 **Examples**
 
@@ -51,6 +51,10 @@ GET Paginated Sell Requests Success Response
       ]
     }
 ```
+
+`GET /sell`
+
+**GET** This will get all of the sell requests
 
 `GET /buy`
 
