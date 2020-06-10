@@ -13,8 +13,13 @@ function paginatedResults(model) {
     const results = {};
 
     if (lastPage < (await model.countDocuments().exec())) {
+      length = await model.countDocuments().exec();
+      totalPages = Math.floor(length / limit);
+
       results.next = {
-        page: page + 1,
+        totalPages: totalPages,
+        nextPage: page + 1,
+        currentPage: page,
         limit: limit,
       };
     }
