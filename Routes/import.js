@@ -22,7 +22,7 @@ router.get("/", async (req, res) => {
           // skip first row - pointless data
           if (r == 0) return false;
           // sell table
-          // if we dont have a phonenext row will have a phone and save it, go to next row
+          // if we dont have a phone, next row will have a phone so save it, go to next row
           if (!hasPhone) {
             hasPhone = true;
             currentPhone = row[0];
@@ -96,6 +96,7 @@ router.get("/", async (req, res) => {
           });
         }
 
+        // serve what we just saved
         res.json(output);
       }
     );

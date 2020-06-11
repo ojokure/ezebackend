@@ -29,7 +29,7 @@ const db = mongoose.connection;
 db.on("error", (error) => console.error(error));
 db.once("open", async () => {
   console.log("connected to database");
-  // if ((await User.countDocuments().exec()) > 0) return;
+  // if ((await model.countDocuments().exec()) > 0) return;
 });
 
 server.use("/buy", buyRouter);
