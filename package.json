@@ -8,6 +8,10 @@
     "test": "cross-env DB_ENV=testing jest --watchAll",
     "start": "node index.js"
   },
+  "engines": {
+    "node": "12.13.1",
+    "npm": "6.14.5"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ojokure/ezebackend.git"
