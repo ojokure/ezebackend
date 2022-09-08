@@ -28,7 +28,7 @@
     "express": "^4.17.1",
     "helmet": "^3.22.0",
     "mongoose": "^5.9.17",
-    "read-excel-file": "^4.0.6"
+    "read-excel-file": "^4.1.0"
   },
   "devDependencies": {
     "jest": "^26.0.1",
